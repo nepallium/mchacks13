@@ -5,7 +5,7 @@ import { google } from 'googleapis';
 
 
 export const getCalendarData = async (googleToken: string) => {
-
+    console.log("TOKEN: ", googleToken);
 
   // 1. Initialize the Auth client with the token
   const auth = new google.auth.OAuth2();

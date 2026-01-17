@@ -5,7 +5,7 @@ const nextConfig: NextConfig = {
     return [
       {
         // Apply these headers to the login page (or all pages using "/:path*")
-        source: "/login", 
+        source: "/login",
         headers: [
           {
             key: "Cross-Origin-Opener-Policy",
