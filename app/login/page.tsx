@@ -8,11 +8,14 @@ import {
   signInWithPopup,
   GoogleAuthProvider
 } from "firebase/auth";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { getCalendarData } from "../../lib/getCalendar"
 import { auth } from "@/lib/firebase";
+import { useRouter } from "next/navigation";
 
 export default function LoginPage() {
+  const router = useRouter()
+
   const [loading, setLoading] = useState(false);
   // const [userToken, setUserToken] = useState<string | null>(null);
 
@@ -34,6 +37,7 @@ export default function LoginPage() {
 
       if (googleToken) {
         console.log("Access Token for Google Calendar:", googleToken);
+        getCalendarData(googleToken);
         // Tip: Store this token in a secure cookie or state to use for API calls
         alert("Logged in! Check console for your Calendar Access Token.");
       }
