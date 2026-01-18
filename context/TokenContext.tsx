@@ -1,5 +1,6 @@
 "use client";
-import { createContext, useContext, useState, ReactNode } from "react";
+
+import { createContext, useContext, useState, ReactNode, useEffect } from "react";
 
 const TokenContext = createContext<{
   token: string | null;

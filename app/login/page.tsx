@@ -1,7 +1,5 @@
 "use client";
 
-
-
 import { initializeApp, getApps } from "firebase/app";
 import {
   getAuth,
@@ -13,6 +11,7 @@ import { getCalendarData } from "../../lib/getCalendar"
 import { auth } from "@/lib/firebase";
 import { useRouter } from "next/navigation";
 import { useToken } from "../../context/TokenContext";
+import useAuth from "@/hooks/useAuth";
 
 export default function LoginPage() {
   const router = useRouter();
