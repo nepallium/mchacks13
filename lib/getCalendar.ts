@@ -4,6 +4,11 @@ import { google } from "googleapis";
 import { addFreeTimesToDB } from "./freeTimes/addFreeTimesToDB";
 
 export const getCalendarData = async (googleToken: string) => {
+  if (googleToken.length == 0) {
+    console.log("No token found, exiting...");
+    return [];
+  }
+
   console.log("TOKEN: ", googleToken);
 
   // 1. Initialize the Auth client with the token
@@ -30,9 +35,11 @@ export const getCalendarData = async (googleToken: string) => {
     addFreeTimesToDB("6jMh0wezCRPW13NrKdnlum0cY9d2", res.data);
 
     console.log(res.data.items);
+    console.log("ITEMS: ", res.data.items);
 
-    return res.data.items;
+    return res.data.items || [];
   } catch (err) {
     console.error("The API returned an error: " + err);
+    return [];
   }
 };
