@@ -1,7 +1,7 @@
 "use client";
 
 import { sampleCalendar1, sampleCalendar2 } from "@/assets/mockData";
-import { getMutualFreeTimes } from "@/lib/matching/getFreeTimes";
+import { getMutualFreeTimes } from "@/lib/freeTimes/getFreeTimes";
 
 export default function Test() {
   function handleTest() {

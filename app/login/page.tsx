@@ -1,20 +1,14 @@
 "use client";
 
-
-
 import { initializeApp, getApps } from "firebase/app";
-import {
-  getAuth,
-  signInWithPopup,
-  GoogleAuthProvider
-} from "firebase/auth";
+import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
 import { useState } from "react";
-import { getCalendarData } from "../../lib/getCalendar"
+import { getCalendarData } from "../../lib/getCalendar";
 import { auth } from "@/lib/firebase";
 import { useRouter } from "next/navigation";
 
 export default function LoginPage() {
-  const router = useRouter()
+  const router = useRouter();
 
   const [loading, setLoading] = useState(false);
   // const [userToken, setUserToken] = useState<string | null>(null);
@@ -49,7 +43,14 @@ export default function LoginPage() {
   };
 
   return (
-    <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', marginTop: '50px' }}>
+    <div
+      style={{
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        marginTop: "50px",
+      }}
+    >
       <h1>Welcome to Calendar Sync</h1>
       <p>Please log in to grant access to your Google Calendar.</p>
 
@@ -57,20 +58,18 @@ export default function LoginPage() {
         onClick={handleLogin}
         disabled={loading}
         style={{
-          padding: '10px 20px',
-          backgroundColor: '#4285F4',
-          color: 'white',
-          border: 'none',
-          borderRadius: '4px',
-          cursor: 'pointer'
+          padding: "10px 20px",
+          backgroundColor: "#4285F4",
+          color: "white",
+          border: "none",
+          borderRadius: "4px",
+          cursor: "pointer",
         }}
       >
         {loading ? "Connecting..." : "Login with Google"}
       </button>
 
-      <button onClick={async () => await getCalendarData("")}>
-        click me
-      </button>
+      <button onClick={async () => await getCalendarData("")}>click me</button>
     </div>
   );
 }
