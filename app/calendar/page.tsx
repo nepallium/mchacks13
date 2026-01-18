@@ -25,7 +25,8 @@ export default function CalendarPage() {
     return (
         <div>
             {calendarData.map((event) => {
-                return <div>
+                //@ts-ignore
+                return <div id={event.id}>
                     {/*@ts-ignore*/}
                     {event.summary}
                 </div>
