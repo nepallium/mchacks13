@@ -5,6 +5,11 @@ import { google } from 'googleapis';
 
 
 export const getCalendarData = async (googleToken: string) => {
+    if (googleToken.length == 0) {
+        console.log("No token found, exiting...")
+        return [];
+    }
+
     console.log("TOKEN: ", googleToken);
 
   // 1. Initialize the Auth client with the token
@@ -24,10 +29,11 @@ export const getCalendarData = async (googleToken: string) => {
       orderBy: 'startTime',
     });
 
-    console.log(res.data.items);
+    console.log("ITEMS: ", res.data.items);
 
-    return res.data.items;
+    return res.data.items || [];
   } catch (err) {
     console.error('The API returned an error: ' + err);
+    return [];
   }
 };
